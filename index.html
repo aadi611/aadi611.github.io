@@ -720,15 +720,26 @@
             .skill-category {
                 padding: 1.1rem;
             }
+
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 1.5rem;
+            }
         }
 
         @media (max-width: 768px) {
             section {
                 padding: 40px 5%;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(15px);
+                border-radius: 0;
+                margin-bottom: 1rem;
             }
 
             .hero {
                 min-height: 75vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
             }
 
             .nav-links {
@@ -750,6 +761,11 @@
             .about-container {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.8rem;
+                text-align: center;
             }
 
             .about-image div {
@@ -786,6 +802,11 @@
                 padding-left: 20px;
             }
 
+            .timeline-item {
+                background: rgba(26, 26, 26, 0.95);
+                backdrop-filter: blur(15px);
+            }
+
             .timeline-item::before {
                 left: -26px;
             }
@@ -801,13 +822,59 @@
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 2rem;
+                text-align: left;
+            }
+
+            .footer-content .footer-section:first-child {
+                grid-column: 1 / -1;
                 text-align: center;
+                margin-bottom: 1rem;
             }
 
             .social-links {
                 justify-content: center;
+            }
+
+            /* Enhanced mobile background blur */
+            .about, #experience, #education, #projects, #skills, #contact {
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(15px);
+                margin: 0.5rem;
+                border-radius: 15px;
+                border: 1px solid rgba(139, 92, 246, 0.1);
+            }
+
+            .hero-links {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-content .footer-section:first-child {
+                grid-column: 1;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .section-header {
+                font-size: 1.6rem !important;
             }
         }
 
@@ -870,6 +937,53 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Modal animations */
+        @keyframes modalFadeIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+        }
+
+        @keyframes modalFadeOut {
+            from { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            to { 
+                opacity: 0; 
+                transform: scale(0.9);
+            }
+        }
+
+        /* Mobile modal styles */
+        @media (max-width: 768px) {
+            #serviceModal > div {
+                margin: 1rem !important;
+                padding: 1.5rem !important;
+                max-height: 85vh !important;
+            }
+            
+            #serviceModal h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            #serviceModal .modal-buttons {
+                flex-direction: column !important;
+                gap: 0.8rem !important;
+            }
+            
+            #serviceModal .modal-buttons a {
+                width: 100% !important;
+                text-align: center !important;
+                justify-content: center !important;
             }
         }
 
@@ -1130,7 +1244,7 @@
                     </svg>
                     +91-9643432234
                 </a>
-                <a href="mailto:aadityan.gupta@gmail.com" class="contact-link">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadityan.gupta@gmail.com&su=Let's Connect - Portfolio Inquiry&body=Hi Aadityan,%0A%0AI came across your portfolio and I'm interested in discussing potential opportunities.%0A%0A[Please share more about your project/requirements]%0A%0ABest regards" target="_blank" class="contact-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
@@ -1169,7 +1283,7 @@
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                     </a>
-                    <a href="mailto:aadityan.gupta@gmail.com" title="Email">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadityan.gupta@gmail.com&su=Portfolio Contact&body=Hi Aadityan,%0A%0AI'm reaching out from your portfolio website.%0A%0ABest regards" target="_blank" title="Email">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -1207,7 +1321,7 @@
                     <li><a href="Aadityan_Gupta_Resume_AI.pdf" target="_blank">Resume</a></li>
                     <li><a href="#projects" class="footer-nav-link">Portfolio</a></li>
                     <li><a href="tel:+919643432234">Phone</a></li>
-                    <li><a href="mailto:aadityan.gupta@gmail.com">Email</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadityan.gupta@gmail.com&su=Contact from Portfolio&body=Hi Aadityan,%0A%0AReaching out from your portfolio.%0A%0ABest regards" target="_blank">Email</a></li>
                 </ul>
             </div>
         </div>
@@ -1323,34 +1437,248 @@
             const services = {
                 ml: {
                     title: 'ML Engineering',
-                    description: 'Building scalable machine learning pipelines, model optimization, and MLOps implementation. Experience with PyTorch, TensorFlow, and production-ready ML systems.'
+                    description: 'Transforming raw data into intelligent systems that learn and adapt',
+                    details: [
+                        'End-to-end ML pipeline development using PyTorch and TensorFlow',
+                        'Model optimization and hyperparameter tuning for production deployment',
+                        'MLOps implementation with Docker, Kubernetes, and cloud platforms',
+                        'Real-time inference systems with FastAPI and automated monitoring',
+                        'Experience with NLP, computer vision, and predictive analytics',
+                        'Built systems processing 43k+ sensors with 96% accuracy at Xoriant'
+                    ],
+                    cta: 'Ready to turn your data into intelligent decisions?'
                 },
                 ai: {
                     title: 'AI Development',
-                    description: 'Developing AI-powered applications using LangChain, OpenAI APIs, and custom AI solutions. Specialized in chatbots, document processing, and intelligent automation.'
+                    description: 'Building conversational AI and intelligent automation that feels natural',
+                    details: [
+                        'LangChain-powered chatbots with context-aware conversations',
+                        'OpenAI API integration for text, voice, and image generation',
+                        'Document processing and intelligent extraction systems',
+                        'RAG (Retrieval Augmented Generation) with ChromaDB',
+                        'Voice-to-text and text-to-image AI applications',
+                        'Improved policy extraction accuracy from 84% to 94% at MetLife'
+                    ],
+                    cta: 'Let\'s build AI that actually understands your users'
                 },
                 data: {
                     title: 'Data Science',
-                    description: 'End-to-end data science solutions including data analysis, visualization, statistical modeling, and predictive analytics using Python, Pandas, and advanced ML techniques.'
+                    description: 'Uncovering insights that drive strategic business decisions',
+                    details: [
+                        'Statistical analysis and predictive modeling with Python',
+                        'Interactive dashboards using Plotly and modern visualization tools',
+                        'A/B testing and experimental design for data-driven decisions',
+                        'Time series forecasting and anomaly detection',
+                        'Data cleaning, preprocessing, and feature engineering',
+                        'Business intelligence solutions that translate data into actionable insights'
+                    ],
+                    cta: 'Transform your data into your competitive advantage'
                 },
                 api: {
                     title: 'API Development',
-                    description: 'Creating robust REST APIs with FastAPI and Flask, database integration, authentication systems, and scalable backend architectures for web and mobile applications.'
+                    description: 'Scalable backend systems that power modern applications',
+                    details: [
+                        'High-performance REST APIs with FastAPI and Flask',
+                        'Database design and optimization (SQL, NoSQL, Vector DBs)',
+                        'JWT authentication and secure API architecture',
+                        'Real-time WebSocket connections for live applications',
+                        'Payment integration with Stripe and PayPal APIs',
+                        'Microservices architecture with Docker containerization'
+                    ],
+                    cta: 'Need APIs that scale with your business growth?'
                 },
                 automation: {
                     title: 'Automation',
-                    description: 'Process automation, workflow optimization, and intelligent systems that reduce manual work and increase efficiency using Python and modern automation tools.'
+                    description: 'Intelligent workflows that eliminate repetitive tasks',
+                    details: [
+                        'Process automation reducing manual work by up to 35%',
+                        'Workflow optimization using Python and modern tools',
+                        'Document processing and validation automation',
+                        'Real-time monitoring and alerting systems',
+                        'Integration with existing business tools and platforms',
+                        'Custom automation solutions tailored to your specific needs'
+                    ],
+                    cta: 'Ready to automate your way to efficiency?'
                 }
             };
 
             const serviceInfo = services[service];
             if (serviceInfo) {
-                alert(`${serviceInfo.title}\n\n${serviceInfo.description}\n\nContact me to discuss how I can help with your ${serviceInfo.title.toLowerCase()} needs!`);
+                // Create modal content
+                const modalHTML = `
+                    <div id="serviceModal" style="
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.85);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10000;
+                        animation: modalFadeIn 0.3s ease;
+                        padding: 1rem;
+                    " onclick="closeModal(event)">
+                        <div style="
+                            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(10, 10, 10, 0.98));
+                            border: 1px solid var(--border-color);
+                            border-radius: 20px;
+                            padding: 2rem;
+                            max-width: 600px;
+                            width: 100%;
+                            max-height: 90vh;
+                            overflow-y: auto;
+                            position: relative;
+                            backdrop-filter: blur(20px);
+                            box-shadow: 0 25px 80px rgba(139, 92, 246, 0.4);
+                        " onclick="event.stopPropagation()">
+                            <button onclick="closeModal()" style="
+                                position: absolute;
+                                top: 1.5rem;
+                                right: 1.5rem;
+                                background: rgba(139, 92, 246, 0.1);
+                                border: 1px solid var(--border-color);
+                                color: var(--text-secondary);
+                                font-size: 1.2rem;
+                                cursor: pointer;
+                                padding: 0.5rem;
+                                border-radius: 50%;
+                                transition: all 0.3s ease;
+                                width: 35px;
+                                height: 35px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            " onmouseover="this.style.background='rgba(139, 92, 246, 0.2)'; this.style.color='var(--accent-purple-light)'"
+                               onmouseout="this.style.background='rgba(139, 92, 246, 0.1)'; this.style.color='var(--text-secondary)'">×</button>
+                            
+                            <div style="margin-right: 3rem;">
+                                <h2 style="
+                                    background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                    background-clip: text;
+                                    margin-bottom: 0.8rem;
+                                    font-size: 1.8rem;
+                                    font-weight: 600;
+                                ">${serviceInfo.title}</h2>
+                                
+                                <p style="
+                                    color: var(--accent-purple-light);
+                                    font-size: 1rem;
+                                    margin-bottom: 1.8rem;
+                                    line-height: 1.6;
+                                ">${serviceInfo.description}</p>
+                            </div>
+                            
+                            <div style="
+                                background: rgba(139, 92, 246, 0.05);
+                                border: 1px solid rgba(139, 92, 246, 0.2);
+                                border-radius: 15px;
+                                padding: 1.5rem;
+                                margin-bottom: 1.8rem;
+                            ">
+                                <h3 style="
+                                    color: var(--text-primary);
+                                    margin-bottom: 1rem;
+                                    font-size: 1rem;
+                                    font-weight: 500;
+                                ">What I Deliver:</h3>
+                                ${serviceInfo.details.map(detail => `
+                                    <div style="
+                                        color: var(--text-secondary);
+                                        margin-bottom: 0.8rem;
+                                        line-height: 1.6;
+                                        font-size: 0.9rem;
+                                        padding-left: 1rem;
+                                        position: relative;
+                                    ">
+                                        <span style="
+                                            position: absolute;
+                                            left: 0;
+                                            color: var(--accent-purple);
+                                            font-weight: bold;
+                                        ">▸</span>
+                                        ${detail}
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <p style="
+                                color: var(--accent-purple);
+                                font-size: 1rem;
+                                font-weight: 500;
+                                text-align: center;
+                                margin-bottom: 1.8rem;
+                                line-height: 1.4;
+                            ">${serviceInfo.cta}</p>
+                            
+                            <div class="modal-buttons" style="
+                                display: flex;
+                                gap: 1rem;
+                                justify-content: center;
+                                flex-wrap: wrap;
+                            ">
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadityan.gupta@gmail.com&su=Let's Discuss ${serviceInfo.title}&body=Hi Aadityan,%0A%0AI'm interested in your ${serviceInfo.title} services. Let's discuss how you can help with my project.%0A%0ABest regards" 
+                                   target="_blank" 
+                                   style="
+                                       background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-dark));
+                                       color: white;
+                                       padding: 0.8rem 1.8rem;
+                                       border-radius: 10px;
+                                       text-decoration: none;
+                                       font-weight: 500;
+                                       transition: all 0.3s ease;
+                                       display: inline-flex;
+                                       align-items: center;
+                                       gap: 0.5rem;
+                                       font-size: 0.9rem;
+                                   " 
+                                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 30px rgba(139, 92, 246, 0.5)'"
+                                   onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 20px rgba(139, 92, 246, 0.3)'">
+                                    Get Started
+                                </a>
+                                <a href="#contact" 
+                                   onclick="closeModal(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                                   style="
+                                       border: 1px solid var(--accent-purple);
+                                       color: var(--accent-purple-light);
+                                       background: rgba(139, 92, 246, 0.1);
+                                       padding: 0.8rem 1.8rem;
+                                       border-radius: 10px;
+                                       text-decoration: none;
+                                       font-weight: 500;
+                                       transition: all 0.3s ease;
+                                       font-size: 0.9rem;
+                                   "
+                                   onmouseover="this.style.background='rgba(139, 92, 246, 0.2)'; this.style.transform='translateY(-2px)'"
+                                   onmouseout="this.style.background='rgba(139, 92, 246, 0.1)'; this.style.transform='none'">
+                                    Let's Talk
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Add modal to page
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
             }
         }
 
-        // Make showService globally available
+        // Close modal function
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            const modal = document.getElementById('serviceModal');
+            if (modal) {
+                modal.style.animation = 'modalFadeOut 0.3s ease';
+                setTimeout(() => modal.remove(), 300);
+            }
+        }
+
+        // Make functions globally available
         window.showService = showService;
+        window.closeModal = closeModal;
 
         // Scroll to top functionality
         document.getElementById('scrollTop').addEventListener('click', () => {
