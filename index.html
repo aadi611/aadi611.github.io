@@ -1432,8 +1432,14 @@
             });
         });
 
+        // Global variable to store scroll position
+        let savedScrollPosition = 0;
+
         // Service popup function
         function showService(service) {
+            // Save current scroll position before opening modal
+            savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
             const services = {
                 ml: {
                     title: 'ML Engineering',
@@ -1672,7 +1678,14 @@
             const modal = document.getElementById('serviceModal');
             if (modal) {
                 modal.style.animation = 'modalFadeOut 0.3s ease';
-                setTimeout(() => modal.remove(), 300);
+                setTimeout(() => {
+                    modal.remove();
+                    // Restore scroll position after modal is closed
+                    window.scrollTo({
+                        top: savedScrollPosition,
+                        behavior: 'auto' // Use 'auto' for instant positioning without smooth scrolling
+                    });
+                }, 300);
             }
         }
 
