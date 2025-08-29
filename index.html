@@ -1439,7 +1439,18 @@
         function showService(service) {
             // Save current scroll position before opening modal
             savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
+
+            // Add fade-in effect to body for modal intro
+            document.body.style.opacity = '0.7';
+            document.body.style.transition = 'opacity 0.4s ease-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                setTimeout(() => {
+                    document.body.style.transition = '';
+                    document.body.style.opacity = '';
+                }, 400);
+            }, 10);
+
             const services = {
                 ml: {
                     title: 'ML Engineering',
@@ -1677,14 +1688,29 @@
             if (event && event.target !== event.currentTarget) return;
             const modal = document.getElementById('serviceModal');
             if (modal) {
+                // Start modal fade out
                 modal.style.animation = 'modalFadeOut 0.3s ease';
+                
+                // Immediately restore scroll position (no delay)
+                window.scrollTo({
+                    top: savedScrollPosition,
+                    behavior: 'auto' // Instant positioning
+                });
+                
+                // Add smooth fade-in effect to page content
+                document.body.style.opacity = '0.7';
+                document.body.style.transition = 'opacity 0.4s ease-out';
+                
                 setTimeout(() => {
                     modal.remove();
-                    // Restore scroll position after modal is closed
-                    window.scrollTo({
-                        top: savedScrollPosition,
-                        behavior: 'auto' // Use 'auto' for instant positioning without smooth scrolling
-                    });
+                    // Smooth fade back to full opacity
+                    document.body.style.opacity = '1';
+                    
+                    // Clean up styles after transition
+                    setTimeout(() => {
+                        document.body.style.transition = '';
+                        document.body.style.opacity = '';
+                    }, 400);
                 }, 300);
             }
         }
